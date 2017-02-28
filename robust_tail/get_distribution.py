@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def get_distribution(mu, sigma, x1=None):
     """
     Returns a 2-point support feasible distribution function for program (5)

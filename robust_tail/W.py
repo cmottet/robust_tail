@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 def W(x, w, rho, limsup, H):
     """Function W as defined in Theorem 5, in the case when nubar = 1
 
