@@ -1,5 +1,6 @@
-import numpy as np
 import pandas as pd
+from scipy.stats import uniform
+
 
 def get_distribution(mu, sigma, x1=None):
     """
@@ -24,14 +25,14 @@ def get_distribution(mu, sigma, x1=None):
     """
 
     if mu**2 > sigma:
-        output = None
+        output = pd.DataFrame({'x': [float('nan')], 'p': [float('nan')]})
 
     if mu**2 == sigma:
-        output = np.dataframe({'x': [mu], 'p': [1]})
+        output = pd.DataFrame({'x': [mu], 'p': [1]})
 
     if mu**2 < sigma:
         if x1 is None:
-            x1 = runif(1,0,mu)
+            x1 = uniform.rvs(0, mu)
 
         x2 = mu + (sigma - mu**2)/(mu-x1)
         p1 = (sigma - mu**2)/((sigma - mu**2) + (x1-mu)**2)
@@ -40,4 +41,7 @@ def get_distribution(mu, sigma, x1=None):
         output = pd.DataFrame({'x': [x1, x2], 'p': [p1, p2]})
 
     return output
+
+
+
 

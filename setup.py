@@ -2,7 +2,8 @@ from setuptools import setup
 
 
 def readme():
-      with open('README.rst') as f: return f.read()
+      with open('README.rst') as f:
+            return f.read()
 
 
 setup(name='robust_tail',
@@ -14,6 +15,17 @@ setup(name='robust_tail',
       author_email='cmottet@bu.edu',
       license='MIT',
       packages=['robust_tail'],
-      install_requires=['pandas', 'numpy'],
+      install_requires=['pandas', 'numpy', 'scipy'],
+     # dependency_links=['https://github.com/sgubianpm/pygensa'],
       zip_safe=False)
 
+
+import sys
+import os
+import types
+import string
+import re
+import dis
+import imp
+import tokenize
+import linecache

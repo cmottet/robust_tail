@@ -8,7 +8,8 @@ def W(x, w, rho, limsup, H):
         the limsup of H(x)/x^2 as x goes to infinity
     :param H: function
         function H(x) as defined in program (5) and (EC.19)
-    :return: scalar"""
+    :return: scalar
+    """
 
     if x != w:
         p1 = (rho - w**2)/(rho - 2*w*x + x**2)

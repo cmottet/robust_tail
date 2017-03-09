@@ -1,7 +1,7 @@
 from .W import W
 from .get_distribution import get_distribution
-from .optimization_functions import compute_bound
-from .estimate_parameters import (estimate_parameters, plot_ci)
+# from .optimization_functions import compute_bound
+# from .estimate_parameters import (estimate_parameters, plot_ci)
 
 
 # export(getCIMomentAndDerivatives)
@@ -11,3 +11,7 @@ from .estimate_parameters import (estimate_parameters, plot_ci)
 # importFrom(GenSA,GenSA)
 # importFrom(dplyr,'%>%')
 # importFrom(gtools,combinations)
+
+import pandas as pd
+from scipy.stats import uniform
+
