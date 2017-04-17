@@ -1,1 +1,7 @@
+#' This file is necessary to tell setuptools to include the README.rst file when generating source
+distributions. Otherwise, only Python files will be included.
+
 include README.rst
+
+#' In order for these files to be copied at install time to the package’s folder inside site-packages,
+ you’ll need to supply include_package_data=True to the setup() function.

@@ -1,15 +1,14 @@
-# git clone https://github.com/sgubianpm/pygensa.git
-#import pip
-#pip.main(["install","--user", "--upgrade","/Users/cmottet/Packages/python/pygensa"])
-
-_all__ = ['compute_bound']
-
-from robust_tail.W import W
-from robust_tail.get_distribution import get_distribution
-from robust_tail.gensa_modified import _gensa_modified
 from math import sqrt
-
 import numpy as np
+from .W import W
+from .get_distribution import get_distribution
+from .gensa_modified import _gensa_modified
+
+# ' git clone https://github.com/sgubianpm/pygensa.git
+# ' import pip
+# ' pip.main(["install","--user", "--upgrade","/Users/cmottet/Packages/python/pygensa"])
+# ' _all__ = ['compute_bound']
+
 
 direction_type = ['max', 'min']
 
@@ -26,7 +25,6 @@ def _compute_bound_val(H,  mu, sigma, limsup, direction='max'):
 
     if isinstance(sigma, np.ndarray):
         sigma = np.assacalar(sigma)
-
 
     scale = (1 if direction == 'min' else -1)
 
@@ -45,9 +43,9 @@ def _compute_bound_val(H,  mu, sigma, limsup, direction='max'):
     return output
 
 
-###
-### Solves programs (EC.19) over 2-point masses distribution functions, when nu = 1.
-###
+#
+# Solves programs (EC.19) over 2-point masses distribution functions, when nu = 1.
+#
 def _compute_bound_int(H, mu, sigma, limsup, direction="max"):
 
     if direction not in direction_type:
@@ -118,7 +116,7 @@ def compute_bound(H, mu, sigma, limsup, nu=1, direction="max"):
     :param nu: A real number as defined in program (5) and  (EC.19) (actually denoted nubar in the latter case)
     :param direction:  A string either "min" or "max" identifying the type of whether program (5) should be a min or a
      max program. Default is "max".
-    :return:
+    :return: A dictionnary with the worst-case bound in 'bound' and the optimal distribution function in P
 
     :Example:
     ##############################################################################
@@ -138,6 +136,7 @@ def compute_bound(H, mu, sigma, limsup, nu=1, direction="max"):
     ################################################################################
     from scipy.stats import expon
     import pandas as pd
+    import numpy as np
 
     c = expon.ppf(0.9)
     H = lambda x: np.array([float(c <= x)])
