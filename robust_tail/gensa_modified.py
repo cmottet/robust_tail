@@ -71,15 +71,13 @@ def _gensa_modified(func, x0, bounds, maxiter=500, initial_temp=5230., visit=2.6
     # Test gensa_modified in the bivariate case with one lower bound equal to the upper bound
     def f2(x): return x[0] + x[1]
     output = _gensa_modified(func = f2,x0 = None,bounds = [[1,1],[1,3]])
-    output.x
-    output.fun
+    output
 
     gensa(func = f2,x0 = None,bounds = [[1,1],[1,3]]) # This crashes
 
     # Test gensa_modified in the bivariate case with both lower bound are equal to the upper bounds
     output = _gensa_modified(func = f2,x0 = None,bounds = [[1,1],[1,1]])
-    output.x
-    output.fun
+    output
 
     gensa(func = f2,x0 = None,bounds = [[1,1],[1,1]]) # This crashes
 

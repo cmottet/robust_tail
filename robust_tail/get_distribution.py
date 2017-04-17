@@ -1,6 +1,7 @@
 import pandas as pd
 from scipy.stats import uniform
 
+_all__ = ['get_distribution']
 
 def get_distribution(mu, sigma, x1=None):
     """
